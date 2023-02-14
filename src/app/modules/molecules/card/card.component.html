@@ -1,0 +1,22 @@
+
+<div class="row g-0" >
+  <div class="col-md-4">
+    <app-image [imagen]="cardSelect.image"></app-image>
+  </div>
+  <div class="col-md-6">
+    <div class="card-body">
+      <h5 class="card-title"><app-content [texto]="cardSelect.name"></app-content></h5>
+      <app-content [texto]="cardSelect.species"></app-content>
+       <app-content [texto]="'Precio: $'+cardSelect.precio"></app-content>
+
+      <app-button *ngIf="cardSelect.cantidad>0" [texto]="'comprar'" (click)="funcion()"></app-button>
+      <label ngClass="bg-danger" *ngIf="cardSelect.cantidad<=0" class="btn btn danger">Agotado</label>
+    </div>
+  </div>
+  <div class="col-md-2">
+    <p><app-content [texto]="'Total: ' + cardSelect.cantidad"></app-content></p>
+
+  </div>
+</div>
+
+

@@ -1,0 +1,18 @@
+
+  <hr>
+  <h4 style="text-align: right;"><app-content [texto]="'Dinero Diponible: '+'$'+dinero"></app-content></h4>
+  <hr>
+  <h3><app-content [texto]="'Lista de Cartas'"></app-content></h3>
+  <hr>
+
+  <div class="row">
+
+    <div class="col-sm-4" *ngFor="let item of cards | paginate: {itemsPerPage: 9, currentPage: page}">
+      <div class="card mb-3" style="max-width: 400px;">
+        <app-card [cardSelect]="item" (cardBuy)="funcion($event)"></app-card>
+      </div>
+    </div>
+  </div>
+
+  <pagination-controls (pageChange)="page = $event" previousLabel="Anterior" nextLabel="Siguiente"></pagination-controls>
+
